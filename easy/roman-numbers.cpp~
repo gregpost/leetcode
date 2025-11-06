@@ -22,13 +22,13 @@ public:
 		const int n = string.size();
 		int i = 0;
 		bool b = false;
-		int pv = MAX_INT;
+		int pv = 0;
 		int sum = 0;
 		while (i < n) {
-			const int v = um1[s[i]];
-			b = pv < v;
-			pv = v;
-			s = b ? s + um2[si] : s + v;
+			if (pv < s[i]) b = true;
+			pv = s[i];
+			if (b) s += um2[pv];
+			else s += um1[pv];
 			i++;
 		}
 	}
